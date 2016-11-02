@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/outlets_dialog_Name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Name"
+            android:inputType="text"
+            android:maxLines="1"
+            android:singleLine="true"/>
+
+    </android.support.design.widget.TextInputLayout>
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/outlets_dialog_Address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Receptacle Address"
+            android:inputType="text"
+            android:maxLines="1"
+            android:singleLine="true"/>
+
+    </android.support.design.widget.TextInputLayout>
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/outlets_dialog_Number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Receptacle Number"
+            android:inputType="text"
+            android:maxLines="1"
+            android:singleLine="true"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <ToggleButton
+        android:text="Recepticle Power"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/outlets_dialog_button" />
+
+</LinearLayout>

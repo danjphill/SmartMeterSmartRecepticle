@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="#FFFFFF">
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="50dp"
+        android:background="#ff0011"
+        android:id="@+id/outlet_adapter_power" />
+
+
+    <ImageView
+        android:id="@+id/outlet_adapter_icon"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="5dp"
+        android:src="@drawable/main_plug" />
+
+
+
+    <LinearLayout  android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.95">
+
+        <TextView
+            android:id="@+id/outlet_adapter_Name"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="3dp"
+            android:singleLine="true"
+            android:text="TextView"
+            android:layout_gravity="center_vertical"
+            android:textSize="16sp"
+            android:textColor="#000000"
+            android:ellipsize="end" />
+
+        <TextView
+            android:id="@+id/outlet_adapter_Address"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:textSize="12sp"
+            android:text="TextView"
+            android:textColor="#8D8D8D"
+            android:ellipsize="end"/>
+
+        <TextView
+            android:id="@+id/outlet_adapter_Number"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:textSize="12sp"
+            android:text="TextView"
+            android:textColor="#8D8D8D"
+            android:ellipsize="end"/>
+
+    </LinearLayout>
+
+</LinearLayout>

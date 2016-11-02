@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/main_key"
+        android:id="@+id/imageView" />
+
+    <TextView
+        android:text="Current Key: 000000000000000000000"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:id="@+id/change_key_CurrentKey" />
+
+    <TextView
+        android:text="Enter the Key As It Appears On Your Meter - This Key is Used to Connect Your Smart Meter To This App."
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:id="@+id/textView" />
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+
+        <EditText
+            android:id="@+id/changekey_key"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Key Here"
+            android:imeOptions="actionUnspecified"
+            android:inputType="text"
+            android:maxLines="1"
+            android:singleLine="true"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:text="Change Key"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/changekey_submit" />
+</LinearLayout>

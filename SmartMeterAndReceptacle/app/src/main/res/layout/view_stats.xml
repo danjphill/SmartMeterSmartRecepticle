@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Spinner
+        android:id="@+id/view_stats_Spinner"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout  android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/view_stats_chart"
+            android:layout_width="match_parent"
+            android:layout_height="200dp" />
+    </LinearLayout>
+    <LinearLayout  android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+        <TextView
+            android:id="@+id/view_stats_CostPerWatt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="5dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:textSize="20dp"
+            android:text="Cost Per Watt = $11.00" />
+
+        <TextView
+            android:id="@+id/view_stats_WattsUsed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="5dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:textSize="20dp"
+            android:text="WattsUsed = 10W" />
+        <TextView
+            android:id="@+id/view_stats_BillEstimate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="5dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:textSize="20dp"
+            android:text="Bill Estimate = 10W" />
+
+        <TextView
+            android:id="@+id/view_stats_Highest_Consumer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="5dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:textSize="20dp"
+            android:text="Highest Consumer = Fridge" />
+    </LinearLayout>
+
+    <Button
+        android:text="Refresh"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/view_stats_refresh" />
+</LinearLayout>
