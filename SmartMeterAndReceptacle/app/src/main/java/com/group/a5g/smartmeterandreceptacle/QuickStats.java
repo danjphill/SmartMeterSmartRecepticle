@@ -86,17 +86,16 @@ public class QuickStats extends AppCompatActivity {
         mChart.setDrawCenterText(true);
 
         mChart.setRotationAngle(90);
-        // enable rotation of the chart by touch
+
         mChart.setRotationEnabled(true);
         mChart.setHighlightPerTapEnabled(true);
 
 
-        // mChart.setUnit(" €");
-        // mChart.setDrawUnitsInChart(true);
 
-        // add a selection listener
+
+
         mChart.animateY(1400, Easing.EasingOption.EaseInOutQuad);
-        //mChart.spin(2000, 0, 360);
+   
 
 
         Legend l = mChart.getLegend();
@@ -108,7 +107,7 @@ public class QuickStats extends AppCompatActivity {
         l.setYEntrySpace(0f);
         l.setYOffset(0f);
 
-        // entry label styling
+   
         mChart.setEntryLabelColor(Color.WHITE);
         mChart.setEntryLabelTextSize(12f);
         mChart.setDrawEntryLabels(false);
@@ -166,7 +165,7 @@ public class QuickStats extends AppCompatActivity {
                     e.printStackTrace();
                 }
             }
-            //Downloads the file with the readings and saves it to the cache directory
+   
             File OutputLocationDir = new File(getExternalCacheDir() + "/");
             OutputLocation = new File(getExternalCacheDir() + MostRecientFile);
             OutputLocationDir.mkdir();
@@ -175,7 +174,7 @@ public class QuickStats extends AppCompatActivity {
                         .download(in);
                 try (BufferedReader br = new BufferedReader(new FileReader(OutputLocation))) {
                     String line1;
-                    //Reads the readings file line by line
+
                     float HighestOldCumPower = 0;
                     float HighestMonthCumPower = 0;
 
@@ -187,14 +186,14 @@ public class QuickStats extends AppCompatActivity {
                                     DateTime dtNow = new DateTime();
                                     String[] CurrLineDate = linevalues[2].split("_");
                                     DateTime dtParse = new DateTime(Integer.parseInt(CurrLineDate[2]), Integer.parseInt(CurrLineDate[0]), Integer.parseInt(CurrLineDate[1]), 0, 0, 0, 0);
-                                    //Gets the Largest Power Value Before The Current Month
+               
                                     if ((dtNow.isAfter(dtParse)) && (dtNow.getMonthOfYear()) != dtParse.getMonthOfYear()) {
                                         if (HighestOldCumPower < Float.parseFloat(linevalues[1])) {
                                             HighestOldCumPower = Float.parseFloat(linevalues[1]);
 
                                         }
                                     }
-                                    //Gets the Largest Power Value for This Month
+                                
                                     if(dtNow.getMonthOfYear() == dtParse.getMonthOfYear()){
                                         if( HighestMonthCumPower < Float.parseFloat(linevalues[1])){
                                             HighestMonthCumPower = Float.parseFloat(linevalues[1]);
@@ -302,9 +301,7 @@ public class QuickStats extends AppCompatActivity {
 
 
 
-
-        // NOTE: The order of the entries when being added to the entries array determines their position around the center of
-        // the chart.
+//Plotting the Chart
         float TotalPower = 0;
 
         for(int i = 0; i<ReceptacleHighestValuesList.size();i++) {
@@ -334,50 +331,11 @@ public class QuickStats extends AppCompatActivity {
 
         mChart.setData(data);
 
-        // undo all highlights
+
         mChart.highlightValues(null);
         mChart.setCenterText(generateCenterSpannableText());
         mChart.invalidate();
         mChart.animateY(1400);
-
-//        dataSet.setSliceSpace(3f);
-//        dataSet.setSelectionShift(5f);
-//
-//        // add a lot of colors
-//
-//        ArrayList<Integer> colors = new ArrayList<Integer>();
-//
-////        for (int c : ColorTemplate.VORDIPLOM_COLORS)
-////            colors.add(c);
-////
-////        for (int c : ColorTemplate.JOYFUL_COLORS)
-////            colors.add(c);
-////
-////        for (int c : ColorTemplate.COLORFUL_COLORS)
-////            colors.add(c);
-////
-////        for (int c : ColorTemplate.LIBERTY_COLORS)
-////            colors.add(c);
-//
-//      for (int c : ColorTemplate.MATERIAL_COLORS)
-//        colors.add(c);
-//
-//        //colors.add(ColorTemplate.getHoloBlue());
-//
-//        dataSet.setColors(colors);
-//        dataSet.setSelectionShift(0f);
-//
-//        PieData data = new PieData(dataSet);
-//        data.setValueFormatter(new PercentFormatter());
-//        data.setValueTextSize(11f);
-//        data.setValueTextColor(Color.BLACK);
-//        mChart.setData(data);
-//
-//        // undo all highlights
-//        mChart.highlightValues(null);
-//
-//        mChart.invalidate();
-
 
         }
 
@@ -387,7 +345,6 @@ public class QuickStats extends AppCompatActivity {
         s.setSpan(new RelativeSizeSpan(1.7f), 0, text.indexOf("\n"), 0);
         s.setSpan(new StyleSpan(Typeface.NORMAL), text.indexOf("\n"),text.length() , 0);
         s.setSpan(new ForegroundColorSpan(Color.GRAY),text.indexOf("\n"), text.length(), 0);
-        //s.setSpan(new RelativeSizeSpan(.8f), 14, s.length() - 15, 0);
         return s;
     }
 
