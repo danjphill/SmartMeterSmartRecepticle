@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{%block body%}
+
+
+ <div class="list-group col-xs-4">
+
+ {% for user in users %}
+
+  <a href='{{"/trends/"+user}}' class="list-group-item">{{user}}</a>
+
+
+{% endfor %}
+
+</div>
+
+{%endblock%}

@@ -1,0 +1,162 @@
+{% extends "base.html" %}
+
+{%block body%}
+
+
+<div class="panel-group">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" href="#collapse2">Power Trends</a>
+      </h4>
+    </div>
+    <div id="collapse2" class="panel-collapse collapse in">
+      <div class="panel-body">
+      	<!-- <div>
+
+      		<h4 data-toggle="collapse" href="#temperature">Temperature</h4>
+      		<h4>Temperature</h4>
+
+      	</div>
+      	<hr> -->
+      	<!-- <div id="temperature" class="collapse in"> -->
+      	<div id="container" style="min-width: 310px; height: 600px; margin: 0 auto">
+      	</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{%endblock%}
+
+{%block js%}
+<!-- <script src="https://code.highcharts.com/stock/highstock.js"></script>
+<script src="https://code.highcharts.com/stock/highcharts-more.js"></script>
+<script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+<script src="http://highcharts.github.io/export-csv/export-csv.js"></script> -->
+<script src="{{ url_for ('static', filename = 'js/highstock.js')}}"></script>
+<!-- <script src="{{ url_for ('static', filename = 'js/highcharts.js')}}"></script> -->
+<script src="{{ url_for ('static', filename = 'js/highcharts-more.js')}}"></script>
+<script src="{{ url_for ('static', filename = 'js/exporting.js')}}"></script>
+<script src="{{ url_for ('static', filename = 'js/export-csv.js')}}"></script>
+
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+$('#container').highcharts({
+        chart: {
+            type: 'spline',
+            zoomType: 'x'
+        },
+         credits: {
+        enabled: false
+        },
+        //navigator: {
+        //series: {
+            //includeInCSVExport: false
+          //  }
+        //},
+        legend: {
+            enabled: true
+            },
+
+         rangeSelector: {
+                allButtonsEnabled: true,
+                selected: 2,
+                enabled: true,
+                buttons: [{
+                type: 'day',
+                count: 1,
+                text: '1d'
+              },{
+                type: 'week',
+                count: 1,
+                text: '1w'
+              },
+              {
+                type: 'month',
+                count: 1,
+                text: '1m'
+              }, {
+                type: 'month',
+                count: 3,
+                text: '3m'
+              }, {
+                type: 'all',
+                text: 'All'
+              }]
+            },
+        title: {
+            text: 'Power Trends'
+        },
+        //subtitle: {
+        //    text: 'Irregular time data in Highcharts JS'
+        //},
+        xAxis: {
+            type: 'datetime',
+            title: {
+                text: 'Date'
+            }
+        },
+        yAxis: {
+            title: {
+                text: ''
+            },
+          },
+
+        tooltip: {
+            //headerFormat: '<b>{series.name}</b><br>',
+            //pointFormat: '{point.x:%e. %b}: {point.y:.2f} m',
+
+                shared: true,
+                crosshairs: true
+
+        },
+
+        //plotOptions: {
+            //spline: {
+             //   marker: {
+            //        enabled: true
+              //  }
+          //  }
+        //},
+
+
+        series: [{
+            name: 'Power (Watts)',
+            data: {{all_data|safe}}
+            // data: [
+            //     [Date.UTC(1970, 10, 25), 0],
+            //     [Date.UTC(1970, 11, 6), 0.25],
+            //     [Date.UTC(1970, 11, 20), 1.41],
+            //     [Date.UTC(1970, 11, 25), 1.64],
+            //     [Date.UTC(1971, 0, 4), 1.6],
+            //     [Date.UTC(1971, 0, 17), 2.55],
+            //     [Date.UTC(1971, 0, 24), 2.62],
+            //     [Date.UTC(1971, 1, 4), 2.5],
+            //     [Date.UTC(1971, 1, 14), 2.42],
+            //     [Date.UTC(1971, 2, 6), 2.74],
+            //     [Date.UTC(1971, 2, 14), 2.62],
+            //     [Date.UTC(1971, 2, 24), 2.6],
+            //     [Date.UTC(1971, 3, 2), 2.81],
+            //     [Date.UTC(1971, 3, 12), 2.63],
+            //     [Date.UTC(1971, 3, 28), 2.77],
+            //     [Date.UTC(1971, 4, 5), 2.68],
+            //     [Date.UTC(1971, 4, 10), 2.56],
+            //     [Date.UTC(1971, 4, 15), 2.39],
+            //     [Date.UTC(1971, 4, 20), 2.3],
+            //     [Date.UTC(1971, 5, 5), 2],
+            //     [Date.UTC(1971, 5, 10), 1.85],
+            //     [Date.UTC(1971, 5, 15), 1.49],
+            //     [Date.UTC(1971, 5, 23), 1.08]
+            // ]
+        }]
+    });
+});
+</script>
+
+
+
+{%endblock%}
